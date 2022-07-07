@@ -21,12 +21,12 @@ const errorHandlerMiddleware = (err, req, res, next) => {
 		customError.msg = `${Object.keys(err.keyValue)} field has to be unique`;
 		customError.statusCode = 400;
 	}
-	if (err.name === 'CastError') {
-		customError.msg = `No item found with id : ${err.value._id}`;
-		customError.statusCode = 404;
-	}
+	// if (err.name === 'CastError') {
+	// 	customError.msg = `No item found with id : ${err.value._id}`;
+	// 	customError.statusCode = 404;
+	// }
 
-	return res.status(customError.statusCode).json({ msg: customError.msg });
+	// return res.status(customError.statusCode).json({ msg: customError.msg });
 };
 
 export default errorHandlerMiddleware;
