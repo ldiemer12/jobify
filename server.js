@@ -1,4 +1,5 @@
 import('express-async-errors');
+import morgan from 'morgan';
 dotenv.config();
 import dotenv from 'dotenv';
 dotenv.config();
@@ -21,6 +22,10 @@ import connectDB from './db/connect.js';
 // routers
 import authRouter from './routes/auth.js';
 import jobsRouter from './routes/jobs.js';
+
+if (process.env.NODE_ENV !== 'production') {
+	app.use(morgan('dev'));
+}
 
 // app.use(cors());
 app.use(express.json());
