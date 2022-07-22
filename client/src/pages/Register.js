@@ -20,6 +20,8 @@ const Register = () => {
 		showAlert,
 		displayAlert,
 		registerUser,
+		loginUser,
+		setupUser,
 	} = useAppContext();
 
 	const toggleMember = () => {
@@ -40,9 +42,17 @@ const Register = () => {
 
 		const currentUser = { name, email, password };
 		if (isMember) {
-			console.log('already a member');
+			setupUser({
+				currentUser,
+				endPoint: 'login',
+				alertText: 'Login Successful! Redirecting...',
+			});
 		} else {
-			registerUser(currentUser);
+			setupUser({
+				currentUser,
+				endPoint: 'register',
+				alertText: 'User Created! Redirecting...',
+			});
 		}
 	};
 
