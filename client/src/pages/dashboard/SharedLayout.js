@@ -17,4 +17,5 @@ const SharedLayout = () => {
 		</Wrapper>
 	);
 };
+
 export default SharedLayout;
